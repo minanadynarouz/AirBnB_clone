@@ -13,8 +13,6 @@ class TestFileStorage(unittest.TestCase):
     def setUp(self):
         """
         Set up resources to be used in the tests
-        i) If 'file.json' exists, rename it to 'tempfile'
-        ii) Initialize objects
         """
         if os.path.isfile('file.json'):
             os.rename('file.json', 'tempfile')
@@ -24,8 +22,6 @@ class TestFileStorage(unittest.TestCase):
     def tearDown(self):
         """
         Tear down resources associated with tests
-        i) Rename 'tempfile' back to 'file.json'
-        ii) Delete the objects created during the tests
         """
         if os.path.isfile('tempfile'):
             os.rename('tempfile', 'file.json')
@@ -40,7 +36,7 @@ class TestFileStorage(unittest.TestCase):
         self.assertTrue(hasattr(self.base, "__class__"))
         self.assertEqual(self.base.__class__.__name__, "BaseModel")
         self.assertEqual(self.storage._FileStorage__file_path, "file.json")
-        self.assertTrue(isinstance(self.storage._FileStorage__objects, dict))
+        self.assertTrue(isinstance(self.storage.FileStorage.__objects, dict))
 
     def test_all_method(self):
         """Test the all method"""
@@ -52,11 +48,6 @@ class TestFileStorage(unittest.TestCase):
     def test_reload_method(self):
         """
         Test the reload method
-        i) Create a temporaty BaseModel object
-        ii) Call save on the object
-        iii) call reload on the storge object and verify that the new
-        temporaty object exists in the storage object
-        iv) Delete temporary object
         """
         self.storage.save()
         self.assertTrue(os.path.isfile("file.json"))
