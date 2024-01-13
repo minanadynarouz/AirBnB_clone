@@ -80,7 +80,6 @@ class HBNBCommand(cmd.Cmd):
             print("** instance id missing **")
         else:
             obj_dict = storage.all()
-            # key = arg_inputs[0] + '.' + str(arg_inputs[1])
             key = f"{arg_inputs[0]}.{str(arg_inputs[1])}"
             if key not in obj_dict.keys():
                 print("** no instance found **")
