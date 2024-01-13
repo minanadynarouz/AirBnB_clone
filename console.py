@@ -16,6 +16,7 @@ from models.review import Review
 
 class HBNBCommand(cmd.Cmd):
     """Functions of the console"""
+    intro = 'Welcome to the AirBnB Console! Type help or ? to list commands.\n'
     prompt = '(hbnb) '
     classes = {
             'BaseModel': BaseModel,
@@ -28,7 +29,7 @@ class HBNBCommand(cmd.Cmd):
             }
 
     def precmd(self, argument):
-        """ executed just before the command line line is interpreted """
+        """ executed just before the command line is interpreted """
         args = argument.split('.', 1)
         if len(args) == 2:
             _class = args[0]
@@ -50,8 +51,8 @@ class HBNBCommand(cmd.Cmd):
         return True
 
     def do_quit(self, arg):
-        """Quit the program"""
-        return True
+        """Quit command to exit the program"""
+        raise SystemExit
 
     def emptyline(self):
         """Overrides default behavior not to print new line"""
