@@ -103,19 +103,28 @@ class HBNBCommand(cmd.Cmd):
                 del obj_dict[key]
                 models.storage.save()
 
-    def do_all(self, arg):
-        """Prints all string representation of all instances"""
-        args = arg.split(".")
-        if len(args) > 0 and args[0] not in self.classes:
+    def do_all(self, line):
+        """Print string representation of all instances"""
+        obj_list = []
+        objs = storage.all()
+        try:
+            if len(line) != 0:
+                eval(line)
+            else:
+                pass
+        except NameError:
             print("** class doesn't exist **")
-        else:
-            objlist = []
-            for obj in storage.all().values():
-                if len(args) > 0 and args[0] == obj.__class__.__name__:
-                    objlist.append(obj.__str__())
-                elif len(args) == 0:
-                    objlist.append(obj.__str__())
-            print(objlist)
+            return
+        line.strip()
+        for key, val in objs.items():
+            if len(line) != 0:
+                if type(val) is eval(line):
+                    val = str(objs[key])
+                    obj_list.append(val)
+            else:
+                val = str(objs[key])
+                obj_list.append(val)
+        print(obj_list)
 
     def do_update(self, args):
         """Updates attributes of object"""
