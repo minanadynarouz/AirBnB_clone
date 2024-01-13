@@ -195,5 +195,12 @@ class HBNBCommand(cmd.Cmd):
     def help_count(self):
         print("Usage: count <class_name>")
 
+    def cmdloop(self, intro=None):
+        try:
+            super().cmdloop(intro)
+        except KeyboardInterrupt:
+            print()
+            raise SystemExit
+
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
