@@ -36,7 +36,7 @@ class TestFileStorage(unittest.TestCase):
         self.assertTrue(hasattr(self.base, "__class__"))
         self.assertEqual(self.base.__class__.__name__, "BaseModel")
         self.assertEqual(self.storage._FileStorage__file_path, "file.json")
-        self.assertTrue(isinstance(self.storage.FileStorage.__objects, dict))
+        self.assertTrue(isinstance(self.storage.__objects, dict))
 
     def test_all_method(self):
         """Test the all method"""
