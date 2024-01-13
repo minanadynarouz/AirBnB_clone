@@ -45,7 +45,7 @@ class HBNBCommand(cmd.Cmd):
             return argument
 
     def do_EOF(self, arg):
-        '''End of the command line interpreter'''
+        """End of the command line interpreter"""
         print("")
         return True
 
