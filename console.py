@@ -3,7 +3,6 @@
 
 import cmd
 import models
-import shlex
 from models import storage
 from models.base_model import BaseModel
 from models.user import User
@@ -106,7 +105,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_all(self, arg):
         """Prints all string representation of all instances"""
-        args = shlex.split(arg)
+        args = arg.split(".")
         if len(args) > 0 and args[0] not in self.classes:
             print("** class doesn't exist **")
         else:
