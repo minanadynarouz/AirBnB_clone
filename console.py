@@ -49,9 +49,17 @@ class HBNBCommand(cmd.Cmd):
         print("")
         return True
 
+    def help_EOF(self):
+        """ Prints the help documentation for EOF """
+        print("Exits the program without formatting\n")
+
     def do_quit(self, arg):
         """Quit command to exit the program"""
-        raise SystemExit
+        return True
+
+    def help_quit(self):
+        """ Prints the help documentation for quit  """
+        print("Exits the program with formatting\n")
 
     def emptyline(self):
         """Overrides default behavior not to print new line"""
@@ -67,6 +75,11 @@ class HBNBCommand(cmd.Cmd):
             obj = self.__class__.classes[arg]()
             obj.save()
             print(obj.id)
+
+    def help_create(self):
+        """ Help information for the create method """
+        print("Creates a class of any type")
+        print("[Usage]: create <className>\n")
 
     def do_show(self, args):
         """Prints the string representation of an instance"""
@@ -84,6 +97,10 @@ class HBNBCommand(cmd.Cmd):
                 print("** no instance found **")
             else:
                 print(obj_dict[key])
+    def help_show(self):
+        """ Help information for the show command """
+        print("Shows an individual instance of a class")
+        print("[Usage]: show <className> <objectId>\n")
 
     def do_destroy(self, args):
         """Destroys an object based on the Class Name and ID"""
@@ -102,6 +119,11 @@ class HBNBCommand(cmd.Cmd):
             else:
                 del obj_dict[key]
                 models.storage.save()
+
+    def help_destroy(self):
+        """ Help information for the destroy command """
+        print("Destroys an individual instance of a class")
+        print("[Usage]: destroy <className> <objectId>\n")
 
     def do_all(self, line):
         """Print string representation of all instances"""
@@ -125,6 +147,11 @@ class HBNBCommand(cmd.Cmd):
                 val = str(objs[key])
                 obj_list.append(val)
         print(obj_list)
+
+    def help_all(self):
+        """ Help information for the all command """
+        print("Shows all objects, or all of a class")
+        print("[Usage]: all <className>\n")
 
     def do_update(self, args):
         """Updates attributes of object"""
@@ -152,6 +179,11 @@ class HBNBCommand(cmd.Cmd):
                 setattr(obj, updates[2], updates[3])
                 storage.save()
 
+    def help_update(self):
+        """ Help information for the update class """
+        print("Updates an object with new information")
+        print("Usage: update <className> <id> <attName> <attVal>\n")
+
     def do_count(self, arg):
         """Count all instances of a class"""
         args = arg.split(" ")
@@ -161,6 +193,8 @@ class HBNBCommand(cmd.Cmd):
                 instances += 1
         print(instances)
 
+    def help_count(self):
+        print("Usage: count <class_name>")
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
