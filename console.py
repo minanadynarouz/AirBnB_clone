@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""Console App to control website"""
 
 import cmd
 import models
@@ -11,8 +12,6 @@ from models.city import City
 from models.amenity import Amenity
 from models.place import Place
 from models.review import Review
-
-"""Console to manage the app"""
 
 
 class HBNBCommand(cmd.Cmd):
