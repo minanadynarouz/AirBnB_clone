@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """Console App to control website"""
 
-import models
+import cmd
 
 
 class HBNBCommand(cmd.Cmd):
