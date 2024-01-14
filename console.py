@@ -50,7 +50,7 @@ class HBNBCommand(cmd.Cmd):
 
     def help_EOF(self):
         """ Prints the help documentation for EOF """
-        print("Exits the program without formatting\n")
+        print("EOF command to exit the program\n")
 
     def do_quit(self, arg):
         """Quit command to exit the program"""
@@ -58,7 +58,7 @@ class HBNBCommand(cmd.Cmd):
 
     def help_quit(self):
         """ Prints the help documentation for quit  """
-        print("Exits the program with formatting\n")
+        print("Quit command to exit the program\n")
 
     def emptyline(self):
         """Overrides default behavior not to print new line"""
@@ -104,7 +104,7 @@ class HBNBCommand(cmd.Cmd):
     def do_destroy(self, args):
         """Destroys an object based on the Class Name and ID"""
         arg_inputs = args.split(" ")
-        obj_dict = models.storage.all()
+        obj_dict = storage.all()
         if len(args) == 0:
             print("** class name missing **")
         elif arg_inputs[0] not in self.__class__.classes.keys():
