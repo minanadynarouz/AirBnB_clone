@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """Console App to control website"""
 
-import cmd
 import models
 
 
