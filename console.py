@@ -16,6 +16,7 @@ from models.review import Review
 class HBNBCommand(cmd.Cmd):
     """ HBNB Class """
     prompt = '(hbnb) '
+
     classes = {
             'BaseModel': BaseModel,
             'User': User,
@@ -50,7 +51,7 @@ class HBNBCommand(cmd.Cmd):
 
     def help_EOF(self):
         """ Prints the help documentation for EOF """
-        print("Exits the program without formatting\n")
+        print("EOF command to exit the program\n")
 
     def do_quit(self, arg):
         """Quit command to exit the program"""
@@ -58,7 +59,7 @@ class HBNBCommand(cmd.Cmd):
 
     def help_quit(self):
         """ Prints the help documentation for quit  """
-        print("Exits the program with formatting\n")
+        print("Quit command to exit the program\n")
 
     def emptyline(self):
         """Overrides default behavior not to print new line"""
@@ -117,7 +118,7 @@ class HBNBCommand(cmd.Cmd):
                 print("** no instance found **")
             else:
                 del obj_dict[key]
-                models.storage.save()
+                storage.save()
 
     def help_destroy(self):
         """ Help information for the destroy command """
