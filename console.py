@@ -29,6 +29,9 @@ class HBNBCommand(cmd.Cmd):
     def precmd(self, argument):
         """ executed just before the command line is interpreted """
         args = argument.split('.', 1)
+        gets_class = ""
+        gets_id = ""
+        other_arguments = ""
         if len(args) == 2:
             gets_class = args[0]
             args = args[1].split('(', 1)
