@@ -193,6 +193,7 @@ class HBNBCommand(cmd.Cmd):
         print(instances)
 
     def help_count(self):
+        """Count all instances of a class"""
         print("Usage: count <class_name>")
 
     def cmdloop(self, intro=None):
