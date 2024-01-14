@@ -6,7 +6,7 @@ import cmd
 
 class HBNBCommand(cmd.Cmd):
     """ HBNB Class """
-    prompt = '(hbnb)'
+    prompt = '(hbnb) '
 
 
     def do_EOF(self, arg):
