@@ -97,6 +97,7 @@ class HBNBCommand(cmd.Cmd):
                 print("** no instance found **")
             else:
                 print(obj_dict[key])
+
     def help_show(self):
         """ Help information for the show command """
         print("Shows an individual instance of a class")
@@ -202,6 +203,7 @@ class HBNBCommand(cmd.Cmd):
         except KeyboardInterrupt:
             print()
             raise SystemExit
+
 
 if __name__ == '__main__':
     """infinite loop"""
