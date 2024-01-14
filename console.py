@@ -6,12 +6,11 @@ import cmd
 
 class HBNBCommand(cmd.Cmd):
     """ HBNB Class """
-    prompt = '(hbnb) '
+    prompt = '(hbnb)'
 
 
     def do_EOF(self, arg):
         """End of the command line interpreter"""
-        print("")
         return True
 
     def help_EOF(self):
