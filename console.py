@@ -206,4 +206,5 @@ class HBNBCommand(cmd.Cmd):
             raise SystemExit
 
 if __name__ == '__main__':
+    """infinite loop"""
     HBNBCommand().cmdloop()
