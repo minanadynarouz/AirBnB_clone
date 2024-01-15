@@ -86,8 +86,8 @@ class HBNBCommand(cmd.Cmd):
         arg_inputs = args.split(" ")
         if len(arg_inputs) == 0:
             print("** class name missing **")
-        elif arg_inputs[0] not in self.__class__.classes.keys():
-            print("** class name missing **")
+        elif arg_inputs[0] not in self.classes.keys():
+            print("** class doesn't exist **")
         elif len(arg_inputs) == 1:
             print("** instance id missing **")
         else:
@@ -109,8 +109,8 @@ class HBNBCommand(cmd.Cmd):
         obj_dict = models.storage.all()
         if len(args) == 0:
             print("** class name missing **")
-        elif arg_inputs[0] not in self.__class__.classes.keys():
-            print("** class name missing **")
+        elif arg_inputs[0] not in self.classes.keys():
+            print("** class doesn't exist **")
         elif len(arg_inputs) == 1:
             print("** instance id missing **")
         else:
