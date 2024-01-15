@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+    #!/usr/bin/python3
 """Console App to control website"""
 
 import cmd
@@ -63,6 +63,7 @@ class HBNBCommand(cmd.Cmd):
 
     def emptyline(self):
         """Overrides default behavior not to print new line"""
+        print("")
         pass
 
     def do_create(self, arg):
