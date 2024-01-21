@@ -15,7 +15,7 @@ from models.review import Review
 
 class HBNBCommand(cmd.Cmd):
     """ HBNB Class """
-    prompt = '(hbnb) '
+    prompt = "(hbnb) "
 
     classes = {
             'BaseModel': BaseModel,
@@ -85,9 +85,9 @@ class HBNBCommand(cmd.Cmd):
     def do_show(self, args):
         """Prints the string representation of an instance"""
         arg_inputs = args.split(" ")
-        if len(arg_inputs) == 0:
+        if len(args) == 0:
             print("** class name missing **")
-        elif arg_inputs[0] not in self.__class__.classes.keys():
+        elif arg_inputs[0] not in self.classes.keys():
             print("** class doesn't exist **")
         elif len(arg_inputs) == 1:
             print("** instance id missing **")
@@ -110,7 +110,7 @@ class HBNBCommand(cmd.Cmd):
         obj_dict = models.storage.all()
         if len(args) == 0:
             print("** class name missing **")
-        elif arg_inputs[0] not in self.__class__.classes.keys():
+        elif arg_inputs[0] not in self.classes.keys():
             print("** class doesn't exist **")
         elif len(arg_inputs) == 1:
             print("** instance id missing **")
